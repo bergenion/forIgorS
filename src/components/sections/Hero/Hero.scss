@@ -1,0 +1,58 @@
+.vtg-hero {
+  padding-top: 3rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+
+  &__content {
+    padding-right: 1rem;
+  }
+
+  &__title {
+    font-size: clamp(2.2rem, 3vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+    max-width: 34rem;
+    margin-bottom: 1.75rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__note {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    max-width: 34rem;
+  }
+
+  &__side-card {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 900px) {
+  .vtg-hero {
+    &__grid {
+      grid-template-columns: minmax(0, 1.5fr);
+    }
+
+    &__side-card {
+      order: -1;
+    }
+  }
+}
+

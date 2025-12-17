@@ -1,0 +1,17 @@
+.calculator {
+  &__layout {
+    align-items: start;
+  }
+}
+
+.vtg-form {
+  &__group {
+    margin-top: 0.75rem;
+
+    h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+}
+

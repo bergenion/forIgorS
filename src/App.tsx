@@ -1,22 +1,32 @@
-import { useState } from 'react'
-import './App.css'
+import { Header } from './components/Layout/Header'
+import { Footer } from './components/Layout/Footer'
+import { HeroSection } from './components/sections/Hero/Hero'
+import { HeatExchangersSection } from './components/sections/HeatExchangers/HeatExchangers'
+import { BtpSection } from './components/sections/Btp/Btp'
+import { PumpingSection } from './components/sections/Pumping/Pumping'
+import { CatalogSection } from './components/sections/Catalog/Catalog'
+import { CalculatorSection } from './components/sections/Calculator/Calculator'
+import { BenefitsSection } from './components/sections/Benefits/Benefits'
+import { DeliverySection } from './components/sections/Delivery/Delivery'
+import { WorkflowSection } from './components/sections/Workflow/Workflow'
+import './App.scss'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>React + TypeScript</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            Счётчик: {count}
-          </button>
-          <p>
-            Отредактируйте <code>src/App.tsx</code> и сохраните для перезагрузки
-          </p>
-        </div>
-      </header>
+    <div className="vtg-page">
+      <Header />
+      <main className="vtg-page__main">
+        <HeroSection />
+        <HeatExchangersSection />
+        <BtpSection />
+        <PumpingSection />
+        <CatalogSection />
+        <CalculatorSection />
+        <BenefitsSection />
+        <DeliverySection />
+        <WorkflowSection />
+      </main>
+      <Footer />
     </div>
   )
 }
