@@ -1,21 +1,29 @@
 import './Benefits.scss'
+import image13 from '../../../assets/images/image_13.jpg'
+import image14 from '../../../assets/images/image_14.jpg'
+import image15 from '../../../assets/images/image_15.jpg'
+import image16 from '../../../assets/images/image_16.jpg'
 
 const benefits = [
   {
     title: 'ТОЧНОСТЬ',
     text: 'Подобранное оборудование точно подойдёт для решения ваших задач.',
+    image: image13,
   },
   {
     title: 'СКОРОСТЬ',
     text: 'Сделаем расчёт и доставим до вас в согласованные сроки.',
+    image: image14,
   },
   {
     title: 'ГАРАНТИИ',
     text: 'Гарантия на подобранное оборудование и комплектующие до 5 лет.',
+    image: image15,
   },
   {
     title: 'АЛЬТЕРНАТИВА ПОД БЮДЖЕТ',
     text: 'Подберём несколько вариантов, чтобы вы могли выбрать оптимальное решение.',
+    image: image16,
   },
 ]
 
@@ -33,6 +41,9 @@ export function BenefitsSection() {
         <div className="vtg-grid vtg-grid--4">
           {benefits.map((item) => (
             <article key={item.title} className="vtg-card vtg-card--soft">
+              <div className="vtg-card__image">
+                <img src={item.image} alt={item.title} />
+              </div>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>

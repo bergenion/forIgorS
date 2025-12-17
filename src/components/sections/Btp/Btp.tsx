@@ -1,4 +1,7 @@
 import './Btp.scss'
+import image7 from '../../../assets/images/image_7.jpg'
+import image8 from '../../../assets/images/image_8.jpg'
+import image9 from '../../../assets/images/image_9.jpg'
 
 export function BtpSection() {
   return (
@@ -16,6 +19,9 @@ export function BtpSection() {
 
         <div className="vtg-grid vtg-grid--3">
           <article className="vtg-card vtg-card--soft">
+            <div className="vtg-card__image">
+              <img src={image7} alt="Готовность к монтажу" />
+            </div>
             <h3>Готовность к монтажу</h3>
             <p>
               БТП поставляются в собранном виде: теплообменники, насосы, обвязка, КИПиА и
@@ -23,6 +29,9 @@ export function BtpSection() {
             </p>
           </article>
           <article className="vtg-card vtg-card--soft">
+            <div className="vtg-card__image">
+              <img src={image8} alt="Сокращение сроков пуска" />
+            </div>
             <h3>Сокращение сроков пуска</h3>
             <p>
               Благодаря заводской сборке вы экономите время на монтаже и наладке, снижая
@@ -30,6 +39,9 @@ export function BtpSection() {
             </p>
           </article>
           <article className="vtg-card vtg-card--soft">
+            <div className="vtg-card__image">
+              <img src={image9} alt="Проект и согласование" />
+            </div>
             <h3>Проект и согласование</h3>
             <p>
               В комплекте поставляется проектная документация для согласования с
