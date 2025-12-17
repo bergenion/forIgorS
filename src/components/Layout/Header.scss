@@ -6,6 +6,9 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
 
   &__inner {
     display: flex;
@@ -13,6 +16,7 @@
     justify-content: space-between;
     padding: 1rem 0;
     gap: 1.5rem;
+    width: 100%;
   }
 
   &__logo {
