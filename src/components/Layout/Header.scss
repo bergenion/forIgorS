@@ -2,9 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(10, 16, 30, 0.9);
+  background: #ffffff;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   &__inner {
     display: flex;
@@ -19,6 +20,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 0.9rem;
+    color: #F44336;
   }
 
   &__nav {
@@ -28,15 +30,15 @@
   }
 
   &__link {
-    color: rgba(255, 255, 255, 0.8);
+    color: #333333;
     text-decoration: none;
     padding-bottom: 0.1rem;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     transition: color 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.4);
+      color: #F44336;
+      border-color: #F44336;
     }
   }
 
@@ -48,9 +50,13 @@
 
   &__phone {
     font-weight: 600;
-    color: #ffffff;
+    color: #F44336;
     text-decoration: none;
     white-space: nowrap;
+
+    &:hover {
+      color: #D32F2F;
+    }
   }
 }
 

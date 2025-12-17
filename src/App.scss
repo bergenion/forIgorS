@@ -1,10 +1,10 @@
-@import './components/Layout/Header.scss';
-@import './components/Layout/Footer.scss';
+@use './components/Layout/Header.scss' as *;
+@use './components/Layout/Footer.scss' as *;
 
 .vtg-page {
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #1b2845 0, #070b16 55%, #050812 100%);
-  color: #ffffff;
+  background: #f8f9fa;
+  color: #333333;
 
   &__main {
     display: block;
@@ -21,7 +21,7 @@
   padding: 4rem 0;
 
   &--muted {
-    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 55%);
+    background: #ffffff;
   }
 
   &__header {
@@ -31,10 +31,11 @@
     h2 {
       font-size: 2rem;
       margin-bottom: 0.75rem;
+      color: #1a1a1a;
     }
 
     p {
-      color: rgba(255, 255, 255, 0.7);
+      color: #666666;
     }
   }
 }
@@ -43,8 +44,9 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.8rem;
-  color: #8fb4ff;
+  color: #F44336;
   margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .vtg-grid {
@@ -65,46 +67,145 @@
 }
 
 .vtg-card {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding: 1.75rem 1.5rem;
-  background: rgba(10, 16, 30, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
 
   &--accent {
-    background: radial-gradient(circle at top, #1f3b7a 0, #0c1223 55%, #090f1b 100%);
+    background: linear-gradient(135deg, #F44336 0%, #D32F2F 100%);
+    color: #FFF;
+    border: none;
+
+    * {
+      color: #FFF;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    label,
+    input,
+    select,
+    textarea,
+    button {
+      color: #FFF;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    // Формы внутри красных карточек
+    .vtg-form {
+      span {
+        color: #FFF;
+      }
+
+      input[type='tel'],
+      input[type='email'],
+      input[type='text'],
+      input[type='number'],
+      select {
+        color: #FFF;
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        &:focus {
+          background: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      &__checkbox {
+        color: #FFF;
+      }
+
+      &__hint {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    // Кнопка primary должна сохранять свои стили (белый фон, красный текст)
+    .vtg-button--primary {
+      background: #FFF;
+      color: #F44336;
+      box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+
+      &:hover {
+        background: #D32F2F;
+        color: #FFF;
+        box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        background: #C62828;
+        color: #FFF;
+        transform: translateY(0);
+      }
+    }
   }
 
   &--soft {
-    background: rgba(9, 15, 30, 0.9);
+    background: #f8f9fa;
+    border-color: #e9ecef;
   }
 
   &--bordered {
-    background: rgba(9, 15, 30, 0.8);
-    border-style: solid;
+    background: #ffffff;
+    border: 2px solid #F44336;
   }
 
-  h2,
-  h3 {
-    margin-bottom: 0.5rem;
-  }
+  // Стили для обычных карточек (не --accent)
+  &:not(&--accent) {
+    h2,
+    h3 {
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
 
-  p {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.95rem;
+    p {
+      color: #666666;
+      font-size: 0.95rem;
+    }
   }
 
   &__number {
     font-weight: 700;
     font-size: 1.2rem;
-    color: #8fb4ff;
+    color: #F44336;
     margin-bottom: 0.4rem;
   }
 
   &__meta {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: #888888;
     margin-bottom: 0.4rem;
+  }
+
+  // Для карточек с красным фоном номера и мета должны быть белыми
+  &--accent {
+    .vtg-card__number,
+    .vtg-card__meta {
+      color: #FFF;
+    }
   }
 }
 
@@ -121,7 +222,8 @@
     font-size: 0.85rem;
 
     span {
-      color: rgba(255, 255, 255, 0.8);
+      color: #333333;
+      font-weight: 500;
     }
   }
 
@@ -129,32 +231,46 @@
   input[type='email'],
   input[type='text'],
   input[type='number'] {
-    border-radius: 0.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(5, 8, 18, 0.9);
+    border-radius: 0.4rem;
+    border: 1px solid #d0d0d0;
+    background: #ffffff;
     padding: 0.55rem 0.75rem;
-    color: #ffffff;
+    color: #333333;
     font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #F44336;
+      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+    }
   }
 
   input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: #999999;
   }
 
   select {
-    border-radius: 0.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(5, 8, 18, 0.9);
+    border-radius: 0.4rem;
+    border: 1px solid #d0d0d0;
+    background: #ffffff;
     padding: 0.55rem 0.75rem;
-    color: #ffffff;
+    color: #333333;
     font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #F44336;
+      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+    }
   }
 
   &__checkbox {
     display: flex;
     gap: 0.5rem;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #666666;
     align-items: flex-start;
 
     input {
@@ -163,13 +279,12 @@
   }
 
   &__submit {
-    width: 100%;
     margin-top: 0.4rem;
   }
 
   &__hint {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: #888888;
   }
 }
 
@@ -189,33 +304,43 @@
   gap: 0.4rem;
 
   &--primary {
-    background: linear-gradient(135deg, #2d6bff, #5393ff);
-    color: #ffffff;
-    box-shadow: 0 8px 22px rgba(40, 94, 255, 0.45);
+    background: #FFF;
+    color: #F44336;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+    transition: background-color var(--t396-speedhover,0s) ease-in-out,color var(--t396-speedhover,0s) ease-in-out,border-color var(--t396-speedhover,0s) ease-in-out,box-shadow var(--t396-shadowshoverspeed,0.2s) ease-in-out;
 
     &:hover {
-      background: linear-gradient(135deg, #2559d6, #427ef0);
-      box-shadow: 0 12px 30px rgba(40, 94, 255, 0.55);
+      background: #D32F2F;
+      color: #FFF;
+      box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
       transform: translateY(-1px);
+    }
+
+    &:active {
+      background: #C62828;
+      color: #FFF;
+      transform: translateY(0);
     }
   }
 
   &--outline {
-    border-color: rgba(255, 255, 255, 0.35);
+    border-color: #F44336;
     background: transparent;
-    color: #ffffff;
+    color: #F44336;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.06);
+      background: #F44336;
+      color: #FFF;
     }
   }
 
   &--ghost {
-    background: rgba(255, 255, 255, 0.06);
-    color: #ffffff;
+    background: #f0f0f0;
+    color: #333333;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: #e0e0e0;
+      color: #F44336;
     }
   }
 }
